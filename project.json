@@ -1,0 +1,94 @@
+{
+    "projectName": "secretlocationauth",
+    "description": "Authenticate by selecting a secret location on a map",
+    "type": "community",
+    "author": "pdxwebdev",
+    "version": "0.0.1",
+    "authorWebsite": "https://github.com/pdxwebdev/agama-secretlocationauth",
+    "githubUri": "https://github.com/pdxwebdev/agama-secretlocationauth",
+    "license": "apache-2.0",
+    "lastUpdated": "1709620873942",
+    "tags": [
+        "openid-connect",
+        "authentication"
+    ],
+    "noDirectLaunch": [
+        "com.centeridentity.oauth2.AuthzCode"
+    ],
+    "configs": {
+        "com.centeridentity.oidc": {
+            "com.centeridentity.oidc": {
+                "CenterIdentity": {
+                    "host": "https://centeridentity.com",
+                    "dcr": {
+                        "enabled": true,
+                        "useCachedClient": true
+                    },
+                    "oauth": {
+                        "scopes": [
+                            "openid"
+                        ]
+                    },
+                    "provision": {
+                        "uidPrefix": "centeridentity-",
+                        "attribute": "sub"
+                    }
+                },
+                "Github": {
+                    "oauth": {
+                        "authzEndpoint": "https://github.com/login/oauth/authorize",
+                        "tokenEndpoint": "https://github.com/login/oauth/access_token",
+                        "userInfoEndpoint": "https://api.github.com/user",
+                        "clientId": "mangled",
+                        "clientSecret": "twisted",
+                        "scopes": [
+                            "user"
+                        ]
+                    },
+                    "provision": {
+                        "uidPrefix": "github-",
+                        "attribute": "login"
+                    }
+                }
+            }
+        },
+        "": {
+            "com.centeridentity.oidc": {
+                "CenterIdentity": {
+                    "host": "https://centeridentity.com",
+                    "dcr": {
+                        "enabled": true,
+                        "useCachedClient": true
+                    },
+                    "oauth": {
+                        "scopes": [
+                            "openid"
+                        ]
+                    },
+                    "provision": {
+                        "uidPrefix": "centeridentity-",
+                        "attribute": "sub"
+                    }
+                },
+                "Github": {
+                    "oauth": {
+                        "authzEndpoint": "https://github.com/login/oauth/authorize",
+                        "tokenEndpoint": "https://github.com/login/oauth/access_token",
+                        "userInfoEndpoint": "https://api.github.com/user",
+                        "clientId": "mangled",
+                        "clientSecret": "twisted",
+                        "scopes": [
+                            "user"
+                        ]
+                    },
+                    "provision": {
+                        "uidPrefix": "github-",
+                        "attribute": "login"
+                    }
+                }
+            }
+        },
+        "com.centeridentity.oauth2.AuthzCode": {}
+    },
+    "name": "secretlocationauth"
+}

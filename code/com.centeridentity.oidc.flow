@@ -1,0 +1,15 @@
+// OpenId-based inbound identity flow
+Flow com.centeridentity.oidc
+     Basepath ""
+     Configs conf
+opSettings = conf.CenterIdentity
+// Launch utility flow
+outcome = Trigger com.centeridentity.oauth2.AuthzCodeWithUserInfo opSettings.oauth
+When outcome.success is true
+     // Extract profile data (leaves token stuff aside)
+     profile = outcome.data.profile
+     // Do user provisioning and grab his uid
+     uid = Call org.gluu.inbound.UserOnboardHelper#exec opSettings.provision.uidPrefix opSettings.provision.attribute profile
+     // Finish returning the uid of the given user
+     Finish uid
+Finish outcome

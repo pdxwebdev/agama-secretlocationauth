@@ -1,0 +1,18 @@
+{
+  "com.centeridentity.oidc": {
+    "CenterIdentity": {
+      "oauth": {
+        "authzEndpoint": "https://centeridentity.com/oauth2/openid-login",
+        "tokenEndpoint": "https://centeridentity.com/oauth2/openid-token",
+        "userInfoEndpoint": "https://centeridentity.com/oauth2/openid-userinfo",
+        "clientId": "mangled",
+        "clientSecret": "twisted",
+        "scopes": ["user"]
+      },
+      "provision": {
+        "uidPrefix": "centeridentity-",
+        "attribute": "user_id"
+      }
+    }
+  }
+}
